@@ -1,26 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:nova_pasta_flutter/models/personagem.dart';
-import 'package:nova_pasta_flutter/models/titulo.dart';
+import 'package:nova_pasta_flutter/models/feitos.dart';
 
-class AddTituloPage extends StatefulWidget {
+class AddFeitosPage extends StatefulWidget {
   Personagem personagem;
-  ValueChanged<Titulo> onSave;
+  ValueChanged<Feitos> onSave;
 
-  AddTituloPage({super.key, required this.personagem, required this.onSave});
+  AddFeitosPage({super.key, required this.personagem, required this.onSave});
 
   @override
-  State<AddTituloPage> createState() => _AddTituloPageState();
+  State<AddFeitosPage> createState() => _AddFeitosPageState();
 }
 
-class _AddTituloPageState extends State<AddTituloPage> {
-  final _feitos = TextEditingController();
-  final _habilidade = TextEditingController();
+class _AddFeitosPageState extends State<AddFeitosPage> {
+  final _descricao = TextEditingController();
+  final _titulo = TextEditingController();
   final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Adicionar titulo.'),
+        title: const Text('Adicionar feitos.'),
       ),
       body: Form(
         key: _formKey,
@@ -28,12 +28,13 @@ class _AddTituloPageState extends State<AddTituloPage> {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Padding(
-              padding: const EdgeInsets.all(24),
+              padding:
+                  const EdgeInsets.symmetric(vertical: 12.0, horizontal: 24.0),
               child: TextFormField(
-                  controller: _feitos,
+                  controller: _titulo,
                   decoration: const InputDecoration(
                     border: OutlineInputBorder(),
-                    labelText: 'Feitos: ',
+                    labelText: 'Titulo: ',
                   ),
                   keyboardType: TextInputType.text,
                   validator: (value) {
@@ -44,13 +45,12 @@ class _AddTituloPageState extends State<AddTituloPage> {
                   }),
             ),
             Padding(
-              padding:
-                  const EdgeInsets.symmetric(vertical: 12.0, horizontal: 24.0),
+              padding: const EdgeInsets.all(24),
               child: TextFormField(
-                  controller: _habilidade,
+                  controller: _descricao,
                   decoration: const InputDecoration(
                     border: OutlineInputBorder(),
-                    labelText: 'Habilidade: ',
+                    labelText: 'Descrição: ',
                   ),
                   keyboardType: TextInputType.text,
                   validator: (value) {
@@ -67,8 +67,8 @@ class _AddTituloPageState extends State<AddTituloPage> {
               child: ElevatedButton(
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
-                    widget.onSave(Titulo(
-                        feitos: _feitos.text, habilidade: _habilidade.text));
+                    widget.onSave(Feitos(
+                        descricao: _descricao.text, titulo: _titulo.text));
                   }
                 },
                 child: Row(

@@ -1,18 +1,14 @@
-import 'dart:collection';
-
 import 'package:flutter/material.dart';
 import '../models/personagem.dart';
-import '../models/titulo.dart';
+import '../models/feitos.dart';
 
-class PersonagensRepository extends ChangeNotifier {
+class PersonagensRepository {
   final List<Personagem> _personagens = [];
 
-  UnmodifiableListView<Personagem> get personagens =>
-      UnmodifiableListView(_personagens);
+  get personagens => this._personagens;
 
-  void addTitulo({required Personagem personagem, required Titulo titulo}) {
-    personagem.titulos.add(titulo);
-    notifyListeners();
+  void addTitulo({required Personagem personagem, required Feitos feitos}) {
+    personagem.titulos.add(feitos);
   }
 
   PersonagensRepository() {

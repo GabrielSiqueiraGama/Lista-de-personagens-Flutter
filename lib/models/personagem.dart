@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'titulo.dart';
+import 'feitos.dart';
 
 class Personagem {
   String nome;
   String brasao;
   int nivel;
   Color cor;
-  List<Titulo> titulos = [];
+  List<Feitos> titulos = [];
 
   Personagem(
       {required this.nome,

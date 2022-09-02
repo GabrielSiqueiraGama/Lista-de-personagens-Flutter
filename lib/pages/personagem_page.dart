@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../models/personagem.dart';
-import '../models/titulo.dart';
-import '../pages/add_titulo_page.dart';
+import '../models/feitos.dart';
+import 'add_feitos_page.dart';
 
 // ignore: must_be_immutable
 class PersonagemPage extends StatefulWidget {
@@ -18,18 +18,18 @@ class _PersonagemPageState extends State<PersonagemPage> {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (_) => AddTituloPage(
+        builder: (_) => AddFeitosPage(
             // ignore: unnecessary_this
             personagem: widget.personagem,
             // ignore: unnecessary_this
-            onSave: this.addTitulo),
+            onSave: this.addFeitos),
       ),
     );
   }
 
-  addTitulo(Titulo titulo) {
+  addFeitos(Feitos feitos) {
     setState(() {
-      widget.personagem.titulos.add(titulo);
+      widget.personagem.titulos.add(feitos);
     });
     Navigator.pop(context);
     ScaffoldMessenger.of(context)
@@ -83,8 +83,8 @@ class _PersonagemPageState extends State<PersonagemPage> {
             itemBuilder: (BuildContext context, int index) {
               return ListTile(
                 leading: const Icon(Icons.emoji_events),
-                title: Text(widget.personagem.titulos[index].habilidade),
-                trailing: Text(widget.personagem.titulos[index].feitos),
+                title: Text(widget.personagem.titulos[index].titulo),
+                trailing: Text(widget.personagem.titulos[index].descricao),
               );
             },
             separatorBuilder: (_, __) => const Divider(),
