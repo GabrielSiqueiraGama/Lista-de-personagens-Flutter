@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:nova_pasta_flutter/models/personagem.dart';
 import 'package:nova_pasta_flutter/models/feitos.dart';
 
+// ignore: must_be_immutable
 class AddFeitosPage extends StatefulWidget {
   Personagem personagem;
   ValueChanged<Feitos> onSave;

@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:nova_pasta_flutter/models/personagem.dart';
 import 'package:nova_pasta_flutter/pages/personagem_page.dart';
@@ -32,8 +31,8 @@ class _HomePageState extends State<HomePage> {
           //const Text('a');
           final List<Personagem> tabela = controller.tabela;
           return ListTile(
-            leading: Image.network(
-                tabela[personagem].brasao.replaceAll("40x40", "100x100")),
+            leading: Image.network(tabela[personagem].brasao,
+                width: 100, height: 100, fit: BoxFit.cover),
             title: Text(tabela[personagem].nome),
             trailing: Text(
               tabela[personagem].nivel.toString(),

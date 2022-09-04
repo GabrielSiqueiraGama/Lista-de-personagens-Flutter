@@ -6,7 +6,7 @@ class Personagem {
   String brasao;
   int nivel;
   Color cor;
-  List<Feitos> titulos = [];
+  List<Feitos> feitos = [];
 
   Personagem(
       {required this.nome,

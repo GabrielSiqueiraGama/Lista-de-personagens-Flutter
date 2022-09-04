@@ -5,10 +5,10 @@ import '../models/feitos.dart';
 class PersonagensRepository {
   final List<Personagem> _personagens = [];
 
-  get personagens => this._personagens;
+  get personagens => _personagens;
 
   void addTitulo({required Personagem personagem, required Feitos feitos}) {
-    personagem.titulos.add(feitos);
+    personagem.feitos.add(feitos);
   }
 
   PersonagensRepository() {
